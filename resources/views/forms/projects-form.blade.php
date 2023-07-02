@@ -511,48 +511,121 @@
 
                     <div class="collapse" id="item3">
                         <div class="card card-body">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">First</th>
-                                        <th scope="col">Last</th>
-                                        <th scope="col">Handle</th>
-                                        <th scope="col">Detalhes</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td class="project_task"><a class="btn btn-info" href="#" role="button">Ver mais</a></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                        <td class="project_tasks"><a class="btn btn-info" href="#" role="button">Ver mais</a></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td colspan="2">Larry the Bird</td>
-                                        <td>@twitter</td>
-                                        <td class="project_task"><a class="btn btn-info" href="#" role="button">Ver mais</a></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                          <form>
+                              @csrf
+  
+                              {{-- Acordion --}}
+  
+                              <div class="accordion" id="accordionExample">
+                                  <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Novo Membro
+                                      </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                                      <div class="accordion-body">
+                                          <div class="mb-3">
+  
+                                              <div class="col">
+                                                <div class="input-group my-3">
+                                                    <label class="input-group-text" for="inputGroupSelect01">Adicionar membro</label>
+  
+                                                    <select class="form-select" id="inputGroupSelect01">
+                                                      <option selected>Isabel Bongo</option>
+                                                      <option value="1">Luís Kaquinda</option>
+                                                      <option value="2">Gabriel Cipriano</option>
+                                                      <option value="3">Mandanji Bastos</option>
+                                                    </select>
+                                                </div>
+                                              </div>
+  
+                                              <div class="col">
+                                                  <div class="input-group my-3">
+                                                      <label class="input-group-text" for="inputGroupSelect01">Função</label>
+    
+                                                      <select class="form-select" id="inputGroupSelect01">
+                                                        <option selected>Analista</option>
+                                                        <option value="1">Pedreiro</option>
+                                                        <option value="2">Electricista</option>
+                                                        <option value="3">DBA</option>
+                                                      </select>
+                                                  </div>
+                                              </div>
+            
+                                              <div class="col">
+                                                <div class="input-group my-3">
+                                                    <label class="input-group-text" for="inputGroupSelect01">Equipe</label>
+            
+                                                    <select class="form-select" id="inputGroupSelect01">
+                                                      <option selected>Pings with Things</option>
+                                                      <option value="1">PVSix</option>
+                                                      <option value="2">teamCat6</option>
+                                                      <option value="3">P2P</option>
+                                                    </select>
+                                                </div>
+                                              </div>
+  
+                                              <div class="col">
+                                                  <div class="col">
+                                                      <button type="submit" class="btn btn-success">Salvar</button>
+                                                      <button type="submit" class="btn btn-danger">Limpar</button>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Nova Equipe
+                                      </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                      <div class="accordion-body">
+                                          <div class="mb-3">
+  
+                                              <div class="col">
+                                                  <label for="exampleInputEmail1" class="form-label">Nome da Equipe</label>
+                                                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                              </div>
+              
+                                              <div class="col">
+                                                  <div class="input-group my-3">
+                                                      <label class="input-group-text" for="inputGroupSelect01">Responsavél</label>
+              
+                                                      <select class="form-select" id="inputGroupSelect01">
+                                                      <option selected>Isabel Bongo</option>
+                                                      <option value="1">Luís Kaquinda</option>
+                                                      <option value="2">Gabriel Cipriano</option>
+                                                      <option value="3">Mandanji Bastos</option>
+                                                      </select>
+                                                  </div>
+                                              </div>
+  
+                                              <div class="col">
+                                                  <div class="col">
+                                                      <button type="submit" class="btn btn-success">Salvar</button>
+                                                      <button type="submit" class="btn btn-danger">Limpar</button>
+                                              </div>
+                                          </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                              
+                              </div>
+  
+                          </form>
                         </div>
                     </div>
                 </div>
 
             </div>
 
+        </div>
 
-
-
+    </div>
     <!-- Bootstrap core JavaScript-->
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>

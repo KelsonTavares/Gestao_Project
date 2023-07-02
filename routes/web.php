@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('tamplates.base-layoute');
+    return view('tamplates.home');
 })->name('home');
 
 Route::get('/progest', function () {
@@ -22,5 +22,5 @@ Route::get('/progest', function () {
 });
 
 Route::get('/projecto-form', function () {
-    return view('forms.projects-form');
+    return view('forms.form-project');
 })->name('novo-projecto');
