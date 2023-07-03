@@ -14,13 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('tamplates.base-layoute');
+    return view('tamplates.home');
 })->name('home');
 
-Route::get('/progest', function () {
-    return view('tamplates.base-layoute');
-});
-
 Route::get('/projecto-form', function () {
-    return view('forms.projects-form');
+    return view('forms.form-project');
 })->name('novo-projecto');
