@@ -13,4 +13,9 @@ class Type extends Model
         'name',
     ];
 
+    public function resources()
+    {
+        return $this->hasMany(Resource::class);
+    }
+
 }

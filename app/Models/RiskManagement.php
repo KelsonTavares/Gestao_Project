@@ -17,4 +17,9 @@ class RiskManagement extends Model
         'project_id',
     ];
 
+    public function project()
+    {
+        return $this->belongsTo(Project::class);
+    }
+
 }

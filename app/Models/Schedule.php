@@ -16,4 +16,14 @@ class Schedule extends Model
         'task_id',
     ];
 
+    public function project()
+    {
+        return $this->belongsTo(Project::class);
+    }
+
+    public function task()
+    {
+        return $this->belongsTo(Task::class);
+    }
+
 }

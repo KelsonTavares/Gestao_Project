@@ -15,4 +15,14 @@ class Resource extends Model
         'project_id',
     ];
 
+    public function project()
+    {
+        return $this->belongsTo(Project::class);
+    }
+
+    public function type()
+    {
+        return $this->belongsTo(Type::class);
+    }
+
 }

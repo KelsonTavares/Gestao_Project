@@ -17,4 +17,19 @@ class Task extends Model
         'project_id',
     ];
 
+    public function project()
+    {
+        return $this->belongsTo(Project::class);
+    }
+
+    public function schedules()
+    {
+        return $this->hasMany(Schedule::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }

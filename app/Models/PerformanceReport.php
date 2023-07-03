@@ -16,4 +16,9 @@ class PerformanceReport extends Model
         'revenues',
     ];
 
+    public function project()
+    {
+        return $this->belongsTo(Project::class);
+    }
+
 }
