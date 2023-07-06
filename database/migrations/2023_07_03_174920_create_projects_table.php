@@ -18,10 +18,17 @@ class CreateProjectsTable extends Migration
             $table->string('name');
             $table->date('deadline');
             $table->decimal('budget', 10, 2);
+            $table->text('description');
+            $table->string('comments', 256);
 
             $table->foreignId('user_id')
-                ->constrained('users');
-            
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            // $table->foreignId('tenant_id')
+            //     ->constrained()
+            //     ->onUpdate('cascade')
+            //     ->onDelete('cascade');            
             $table->timestamps();
         });
     }

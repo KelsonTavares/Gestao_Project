@@ -21,7 +21,13 @@ class CreatePerformanceReportsTable extends Migration
             $table->decimal('revenues', 10, 2);
 
             $table->foreignId('project_id')
-                ->constrained('projects');
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            // $table->foreignId('tenant_id')
+            //     ->constrained()
+            //     ->onUpdate('cascade')
+            //     ->onDelete('cascade');
             
             $table->timestamps();
         });

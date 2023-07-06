@@ -17,13 +17,19 @@ class CreateExpensesTable extends Migration
             $table->id();
             $table->text('description');
             $table->decimal('amount', 10, 2);
-
+            
             $table->foreignId('user_id')
-                ->constrained('users');
-            
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');           
             $table->foreignId('project_id')
-                ->constrained('projects');
-            
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            // $table->foreignId('tenant_id')
+            //     ->constrained()
+            //     ->onUpdate('cascade')
+            //     ->onDelete('cascade');          
             $table->timestamps();
         });
     }

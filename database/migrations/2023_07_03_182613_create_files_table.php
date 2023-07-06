@@ -19,8 +19,13 @@ class CreateFilesTable extends Migration
             $table->string('filepath');
 
             $table->foreignId('project_id')
-                ->constrained('projects');
-            
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            // $table->foreignId('tenant_id')
+            //     ->constrained()
+            //     ->onUpdate('cascade')
+            //     ->onDelete('cascade');            
             $table->timestamps();
         });
     }

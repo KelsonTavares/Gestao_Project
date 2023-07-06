@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRiskManagementTable extends Migration
+class CreateRiskManagementsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateRiskManagementTable extends Migration
      */
     public function up()
     {
-        Schema::create('risk_management', function (Blueprint $table) {
+        Schema::create('risk_managements', function (Blueprint $table) {
             $table->id();
             $table->text('description');
             $table->string('mitigation_strategy');
@@ -21,8 +21,13 @@ class CreateRiskManagementTable extends Migration
             $table->integer('impact');
 
             $table->foreignId('project_id')
-                ->constrained('projects');
-            
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            // $table->foreignId('tenant_id')
+            //     ->constrained()
+            //     ->onUpdate('cascade')
+            //     ->onDelete('cascade');            
             $table->timestamps();
         });
     }
@@ -34,6 +39,6 @@ class CreateRiskManagementTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('risk_management');
+        Schema::dropIfExists('risk_managements');
     }
 }
