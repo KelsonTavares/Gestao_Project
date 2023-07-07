@@ -16,19 +16,17 @@ class CreatePerformanceReportsTable extends Migration
         Schema::create('performance_reports', function (Blueprint $table) {
             $table->id();
             $table->date('date');
-            $table->integer('progress');
-            $table->decimal('expenses', 10, 2);
-            $table->decimal('revenues', 10, 2);
-
+            $table->integer('progress')->nullable();
+            $table->decimal('expenses', 10, 2)->nullable();
+            $table->decimal('revenues', 10, 2)->nullable();
             $table->foreignId('project_id')
                 ->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            // $table->foreignId('tenant_id')
-            //     ->constrained()
-            //     ->onUpdate('cascade')
-            //     ->onDelete('cascade');
-            
+            $table->foreignId('tenant_id')
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -15,10 +15,9 @@ class CreateTasksTable extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->date('deadline');
+            $table->string('name', 128);
+            $table->date('deadline')->nullable();
             $table->integer('progress');
-
             $table->foreignId('assigned_to')
                 ->constrained('users')
                 ->onUpdate('cascade')
@@ -27,10 +26,10 @@ class CreateTasksTable extends Migration
                 ->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            // $table->foreignId('tenant_id')
-            //     ->constrained()
-            //     ->onUpdate('cascade')
-            //     ->onDelete('cascade');            
+            $table->foreignId('tenant_id')
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');            
             $table->timestamps();
         });
     }

@@ -15,9 +15,8 @@ class CreateExpensesTable extends Migration
     {
         Schema::create('expenses', function (Blueprint $table) {
             $table->id();
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->decimal('amount', 10, 2);
-            
             $table->foreignId('user_id')
                 ->constrained()
                 ->onUpdate('cascade')
@@ -26,10 +25,10 @@ class CreateExpensesTable extends Migration
                 ->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            // $table->foreignId('tenant_id')
-            //     ->constrained()
-            //     ->onUpdate('cascade')
-            //     ->onDelete('cascade');          
+            $table->foreignId('tenant_id')
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');          
             $table->timestamps();
         });
     }

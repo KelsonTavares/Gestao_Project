@@ -16,7 +16,6 @@ class CreateProjectTeamsTable extends Migration
         Schema::create('project_teams', function (Blueprint $table) {
             $table->id();
             $table->string('name', 128);
-            
             $table->foreignId('project_id')
                 ->constrained()
                 ->onUpdate('cascade')
@@ -25,10 +24,10 @@ class CreateProjectTeamsTable extends Migration
                 ->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            // $table->foreignId('tenant_id')
-            //     ->constrained()
-            //     ->onUpdate('cascade')
-            //     ->onDelete('cascade');            
+            $table->foreignId('tenant_id')
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');            
             $table->timestamps();
         });
     }
