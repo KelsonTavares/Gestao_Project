@@ -20,3 +20,7 @@ Route::get('/', function () {
 Route::get('/projecto-form', function () {
     return view('forms.form-project');
 })->name('novo-projecto');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
