@@ -14,6 +14,7 @@
     
     <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/sb-admin-2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/sb-admin-2.css') }}">
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 
     {{-- Bootstrap --}}
@@ -33,14 +34,11 @@
 
     <title>@yield('title')</title>
 </head>
-<body id="page-top">
+<body id="page-top" class="bg-gradient-primary">
 
-    <div id="wrapper">
-        @include('layout.nav')
-        @yield('content')
+    <div class="container">
+        @yield('login')
     </div>
-
-
 
     {{-- Bootstrap Js CDN --}}
 

@@ -20,3 +20,16 @@ Route::get('/', function () {
 Route::get('/projecto-form', function () {
     return view('forms.form-project');
 })->name('novo-projecto');
+
+
+Route::get('/login', function () {
+    return view('tamplates.login');
+})->name('login');
+
+Route::get('/reset-password', function () {
+    return view('tamplates.change-password');
+})->name('password');
+
+Route::get('/registrar', function () {
+    return view('tamplates.register');
+})->name('register');
