@@ -17,13 +17,18 @@ class CreateSchedulesTable extends Migration
             $table->id();
             $table->date('start_date');
             $table->date('end_date');
-
             $table->foreignId('project_id')
-                ->constrained('projects');
-            
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');            
             $table->foreignId('task_id')
-                ->constrained('tasks');
-            
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreignId('tenant_id')
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');           
             $table->timestamps();
         });
     }

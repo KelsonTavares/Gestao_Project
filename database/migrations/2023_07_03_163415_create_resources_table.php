@@ -15,14 +15,15 @@ class CreateResourcesTable extends Migration
     {
         Schema::create('resources', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-
-            $table->foreignId('type_id')
-                ->constrained('types');
-            
+            $table->string('name', 128);
             $table->foreignId('project_id')
-                ->constrained('projects');
-            
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreignId('tenant_id')
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');            
             $table->timestamps();
         });
     }

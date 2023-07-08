@@ -11,7 +11,6 @@ class Resource extends Model
 
     protected $fillable = [
         'name',
-        'type_id',
         'project_id',
     ];
 
@@ -20,9 +19,9 @@ class Resource extends Model
         return $this->belongsTo(Project::class);
     }
 
-    public function type()
+    public function types()
     {
-        return $this->belongsTo(Type::class);
+        return $this->hasMany(Type::class);
     }
 
 }

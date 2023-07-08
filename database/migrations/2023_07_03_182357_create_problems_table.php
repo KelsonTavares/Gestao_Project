@@ -15,12 +15,16 @@ class CreateProblemsTable extends Migration
     {
         Schema::create('problems', function (Blueprint $table) {
             $table->id();
-            $table->string('description');
-            $table->string('solution');
-
+            $table->text('description');
+            $table->string('solution', 256)->nullable();
             $table->foreignId('project_id')
-                ->constrained('projects');
-            
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreignId('tenant_id')
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');            
             $table->timestamps();
         });
     }
