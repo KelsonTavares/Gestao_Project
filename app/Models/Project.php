@@ -13,6 +13,8 @@ class Project extends Model
         'name',
         'deadline',
         'budget',
+        'description',
+        'comments',
         'user_id',
     ];
 
