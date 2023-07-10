@@ -99,10 +99,16 @@ class TenancyServiceProvider extends ServiceProvider
 
     public function boot()
     {
+        //Comentei esse código porque o tenancy estava a dar errado, isso em 10.07.2023 pelas 9h22
+
         $this->bootEvents();
         $this->mapRoutes();
-
         $this->makeTenancyMiddlewareHighestPriority();
+
+        \Stancl\Tenancy\Middleware\InitializeTenancyBySubdomain::$onFail = 
+        function () {
+            return redirect(env('CENTRAL_DOMAIN'));
+        };
     }
 
     protected function bootEvents()
