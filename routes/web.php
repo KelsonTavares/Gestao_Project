@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,42 +15,46 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('vendor.adminlte.auth.login');
-})->name('login');
+// Route::get('/', function () {
+//     return view('vendor.adminlte.auth.login');
+// })->name('login');
 
-Route::get('/blank', function () {
-    return view('tamplates.blank');
-})->name('blank');
+// Route::get('/blank', function () {
+//     return view('tamplates.blank');
+// })->name('blank');
 
-Route::get('/home', function () {
-    return view('tamplates.home');
-})->name('home');
+// Route::get('/home', function () {
+//     return view('tamplates.home');
+// })->name('home');
 
-Route::get('/project-details', function () {
-    return view('tamplates.project-details');
-})->name('project-details');
+// Route::get('/project-details', function () {
+//     return view('tamplates.project-details');
+// })->name('project-details');
 
-Route::get('/tasks-details', function () {
-    return view('tamplates.tasks-details');
-})->name('tasks-details');
+// Route::get('/tasks-details', function () {
+//     return view('tamplates.tasks-details');
+// })->name('tasks-details');
 
-Route::get('/team-details', function () {
-    return view('tamplates.team-details');
-})->name('team-details');
+// Route::get('/team-details', function () {
+//     return view('tamplates.team-details');
+// })->name('team-details');
 
-Route::get('/projecto-form', function () {
-    return view('forms.form-project');
-})->name('novo-projecto');
+// Route::get('/projecto-form', function () {
+//     return view('forms.form-project');
+// })->name('novo-projecto');
 
-Route::get('/reset-password', function () {
-    return view('tamplates.change-password');
-})->name('password');
+// Route::get('/reset-password', function () {
+//     return view('tamplates.change-password');
+// })->name('password');
 
-Route::get('/registrar', function () {
-    return view('vendor.adminlte.auth.register');
-})->name('register');
+// Route::get('/registrar', function () {
+//     return view('vendor.adminlte.auth.register');
+// })->name('register');
 
-Route::get('/locatorio', function () {
-    return view('tamplates.locatorio');
-})->name('locatorio');
+// Route::get('/locatorio', function () {
+//     return view('tamplates.locatorio');
+// })->name('locatorio');
+
+Route::get('login/{id?}', [LoginController::class, 'showLoginForm'])->name('login');
+
+Route::get('register/{id?}', [RegisterController::class, 'showRegistrationForm'])->name('register');
