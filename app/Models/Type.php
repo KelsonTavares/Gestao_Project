@@ -11,11 +11,12 @@ class Type extends Model
 
     protected $fillable = [
         'name',
+        'resource_id',
     ];
 
-    public function resources()
+    public function resource()
     {
-        return $this->hasMany(Resource::class);
+        return $this->belongsTo(Resource::class);
     }
 
 }
