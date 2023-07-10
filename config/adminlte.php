@@ -273,7 +273,7 @@ return [
     |
     */
 
-    'enabled_laravel_mix' => false,
+    'enabled_laravel_mix' => true,
     'laravel_mix_css_path' => 'css/app.css',
     'laravel_mix_js_path' => 'js/app.js',
 
@@ -420,8 +420,8 @@ return [
     */
 
     'plugins' => [
-        'IcheckBootstrap' => [
-            'active' => false,
+        'icheckBootstrap' => [
+            'active' => true,
             'files' => [
                 [
                     'type' => 'css',
@@ -436,17 +436,17 @@ return [
                 [
                     'type' => 'js',
                     'asset' => true,
-                    'location' => '//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js',
+                    'location' => 'vendor/datatables/js/jquery.dataTables.min.js',
                 ],
                 [
                     'type' => 'js',
                     'asset' => true,
-                    'location' => '//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js',
+                    'location' => 'vendor/datatables/js/dataTables.bootstrap4.min.js',
                 ],
                 [
                     'type' => 'css',
                     'asset' => true,
-                    'location' => '//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css',
+                    'location' => 'vendor/datatables/css/dataTables.bootstrap4.min.css',
                 ],
             ],
         ],
@@ -456,22 +456,22 @@ return [
                 [
                     'type' => 'js',
                     'asset' => true,
-                    'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js',
+                    'location' => 'vendor/select2/js/select2.min.js',
                 ],
                 [
                     'type' => 'css',
                     'asset' => true,
-                    'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css',
+                    'location' => 'vendor/select2/css/select2.css',
                 ],
             ],
         ],
         'Chartjs' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
-                    'location' => '//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js',
+                    'asset' => true,
+                    'location' => 'vendor/chart.js/Chart.bundle.min.js',
                 ],
             ],
         ],
@@ -486,17 +486,17 @@ return [
             ],
         ],
         'Pace' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'css',
-                    'asset' => false,
-                    'location' => '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/blue/pace-theme-center-radar.min.css',
+                    'asset' => true,
+                    'location' => 'vendor/pace-progress/themes/blue/pace-theme-center-radar.css',
                 ],
                 [
                     'type' => 'js',
-                    'asset' => false,
-                    'location' => '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js',
+                    'asset' => true,
+                    'location' => 'vendor/pace/pace.min.js',
                 ],
             ],
         ],
@@ -516,7 +516,7 @@ return [
             ],
         ],
         'Duallistbox' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'css',
@@ -558,7 +558,7 @@ return [
             ],
         ],
         'bootstrap-switch' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,14 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('tamplates.home');
-})->name('home');
-
-Route::get('/projecto-form', function () {
-    return view('forms.form-project');
-})->name('novo-projecto');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [AdminController::class, 'home']);
+Route::resource('ies', AdminController::class);
