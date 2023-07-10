@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('tamplates.login');
+    return view('vendor.adminlte.auth.login');
 })->name('login');
 
 Route::get('/blank', function () {
@@ -46,7 +46,7 @@ Route::get('/reset-password', function () {
 })->name('password');
 
 Route::get('/registrar', function () {
-    return view('tamplates.register');
+    return view('vendor.adminlte.auth.register');
 })->name('register');
 
 Route::get('/locatorio', function () {
