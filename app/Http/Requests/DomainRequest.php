@@ -13,7 +13,7 @@ class DomainRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,30 @@ class DomainRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'domain'    => "bail|required|min:3|max:255|unique:domains,domain,". $this->segment(2),
+            'tenant_id' => 'bail|required|integer|exists:tenants,id',
+        ];
+
+    }
+
+    public function attributes()
+    {
+        return [
+            'domain'    => 'domínio',
+            'tenant_id' => 'escritório',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            '*.required'       => 'O campo :attribute é obrigatório',
+            '*.min'            => 'Insira no mínimo :min caracteres',
+            '*.max'            => 'Insira :max caracteres no máximo',
+            '*.integer'        => 'O :attribute é um campo inteiro',
+            'domain.unique'    => 'O :attribute já existe',
+            'tenant_id.exists' => 'O :attribute não existe',
+        ];
+    }
+
 }

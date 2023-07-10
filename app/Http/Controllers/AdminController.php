@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreLocatarioRequest;
+use App\Models\Tenant;
 use Illuminate\Http\Request;
+use Stancl\Tenancy\Database\Models\Domain as DomainModel;
+use Yajra\DataTables\Facades\DataTables;
 
 class AdminController extends Controller
 {
@@ -16,15 +20,16 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    // public function index(Request $request)
-    // {
-    //     if ($request->ajax()) {
-    //         $escritorios = $this->tenantService->getModelsTenant()->with('domains')->get();
-
-    //         return DataTables::of($escritorios)->make(true);
-    //     }
-    //     return view('Admin.index');
-    // }
+    public function index(Request $request)
+    {
+        // dd(Tenant::with('domains')->get());
+        if ($request->ajax()) {
+            $ies = Tenant::with('domains')->get();
+            
+            return DataTables::of($ies)->make(true);
+        }
+        return view('Admin.index');
+    }
 
 
     /**
@@ -43,22 +48,36 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    // public function store(StoreEscritorioRequest $request): RedirectResponse
-    // {
-    //     //
-    //     try {
-    //         $tenant = new Tenant();
-    //         $tenant->name = $request->name;
-    //         $tenant->status = $request->status;
-    //         $tenant->description = $request->description;
-    //         $tenant =  $this->tenantService->store($tenant);
-    //         $tenant->domains()->create($request->except(['name', 'status', 'description']));
-    //     } catch (\Throwable $th) {
-    //         //throw $th;
-    //         return redirect()->back()->withErrors($th->getMessage());
-    //     }
-    //     return redirect()->back()->with('success', 'Escritorio creado com sucesso');
-    // }
+    public function store(StoreLocatarioRequest $request)
+    {
+        $tenant = Tenant::create([
+            'name'        => $request->name,
+            'description' => $request->description,
+            'status'      => $request->status,
+        ]);
+
+        dd($tenant->id);
+        // $domainModel = new DomainModel();
+        // $domainModel->domain = $request->domain;
+        // dd();
+        // try {
+        //     
+
+            
+
+        //     // $tenant->createDomain($request->domain);
+        //     $domainModel = new DomainModel();
+        //     $domainModel->domain = $request->domain;
+        //     $domainModel->tenant_id = $tenant->id;
+
+        // } catch (\Throwable $th) {
+        //     return redirect()->back()->withErrors($th->getMessage());
+        // }
+
+        // dd($tenant->id);
+
+        // return redirect()->back()->with('success', 'IES criada com sucesso');
+    }
 
 
     /**
@@ -107,7 +126,7 @@ class AdminController extends Controller
     //     } catch (\Throwable $th) {
     //         return redirect()->back()->with('error', $th->getMessage());
     //     }
-    //     return redirect()->back()->with('success', 'Escritorio actualizado com sucesso');
+    //     return redirect()->back()->with('success', 'IES actualizada com sucesso');
     // }
 
 
@@ -123,12 +142,12 @@ class AdminController extends Controller
     //         $this->tenantService->delete($id);
     //     } catch (\Throwable $th) {
     //         return response()->json([
-    //             'message' => 'Erro ao excluir o escritorio!',
+    //             'message' => 'Erro ao excluir a IES!',
     //             'success' => false
     //         ], 422);
     //     }
     //     return response()->json([
-    //         'message' => 'escritorio excluido com sucesso!',
+    //         'message' => 'IES excluída com sucesso!',
     //         'success' => true
     //     ], 200);
     // }

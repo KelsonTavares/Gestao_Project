@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class TenantRequest extends FormRequest
+class StoreLocatarioRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,27 +27,30 @@ class TenantRequest extends FormRequest
             'name'        => "bail|required|unique:tenants,name|min:3|max:128",
             'description' => 'bail|min:3|max:255',
             'status'      => 'bail|integer',
+            'domain'      => 'bail|required|unique:domains,domain|min:3|max:128',
         ];
-
     }
 
     public function attributes()
     {
         return [
-            'name'        => 'nome do escritório',
+            'name'        => 'nome da ies',
             'description' => 'descrição',
-            'status'      => 'status do escritório'
+            'status'      => 'status da ies',
+            'domain'      => 'domínio',
         ];
     }
 
     public function messages()
     {
         return [
-            'name.required'  => 'O :attribute é obrigatório',
-            'name.unique'    => 'O :attribute já existe',
-            '*.min'          => 'Insira no mínimo :min caracteres',
-            '*.max'          => 'Insira :max caracteres no máximo',
-            'status.integer' => 'Insira um valor inteiro'
+            'name.required'   => 'O :attribute é obrigatório',
+            'domain.required' => 'O :attribute é obrigatório',
+            'name.unique'     => 'O :attribute já existe',
+            '*.min'           => 'Insira no mínimo :min caracteres',
+            '*.max'           => 'Insira :max caracteres no máximo',
+            'status.integer'  => 'Insira um valor inteiro',
+            'domain.unique'   => 'O :attribute já existe',
         ];
     }
 

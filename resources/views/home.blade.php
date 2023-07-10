@@ -13,7 +13,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Auxilium</li>
+                        <li class="breadcrumb-item active">SGP</li>
                     </ol>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                 <div class="small-box bg-info">
                     <div class="inner">
                         <h3>150</h3>
-                        <p>novos Escritorios</p>
+                        <p>Novos locatários</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-bag"></i>
@@ -44,7 +44,7 @@
                 <div class="small-box bg-success">
                     <div class="inner">
                         <h3>53<sup style="font-size: 20px">%</sup></h3>
-                        <p>Novos Processos</p>
+                        <p>Novos projectos</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-stats-bars"></i>
@@ -58,7 +58,7 @@
                 <div class="small-box bg-warning">
                     <div class="inner">
                         <h3>44</h3>
-                        <p>usuários registrados</p>
+                        <p>Usuários registrados</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-person-add"></i>
@@ -94,4 +94,3 @@
             console.log('Hi!');
         </script>
     @stop
-
