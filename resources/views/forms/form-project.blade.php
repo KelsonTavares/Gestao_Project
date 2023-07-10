@@ -209,7 +209,7 @@
 
             </nav>
 
-            {{-- Projects --}}
+            {{-- Projects | Tasks | Teams --}}
 
             <div class="row m-2">
 
@@ -384,6 +384,21 @@
                                         <input type="date" id="end" class="form-control text-left">
                                     </div>
 
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <div class="col">
+                                        <div class="input-group my-3">
+                                            <label class="input-group-text" for="inputGroupSelect01">Assinatura</label>
+
+                                            <select class="form-select" id="inputGroupSelect01">
+                                            <option selected>Luís Kaquinda</option>
+                                            <option value="1">Mandanji Bastos</option>
+                                            <option value="2">Lucas Cardoso</option>
+                                            <option value="3">Kelson Ango-Sat</option>
+                                            </select>
+                                        </div>
                                 </div>
                             </div>
 

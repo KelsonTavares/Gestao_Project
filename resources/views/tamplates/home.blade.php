@@ -1,7 +1,9 @@
 @extends('../layout/layout')
 
 @section('content')
+
     <!-- Content Wrapper -->
+    
     <div id="content-wrapper" class="d-flex flex-column">
 
         <!-- Main Content -->
@@ -176,33 +178,37 @@
                     <div class="topbar-divider d-none d-sm-block"></div>
 
                     <!-- Nav Item - User Information -->
+
+                    <!-- Example single danger button -->
+
                     <li class="nav-item dropdown no-arrow">
-                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Luís Kaquinda</span>
-                            <img class="img-profile rounded-circle"
-                                src="img/undraw_profile.svg">
-                        </a>
-                        <!-- Dropdown - User Information -->
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                            aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Profile
+
+                        <!-- Example single danger button -->
+                        <div class="nav-item" id="userDropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Luís Kaquinda</span>
+                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Settings
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Activity Log
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Logout
-                            </a>
+
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Settings
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Activity Log
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ route('login') }}">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
                         </div>
                     </li>
 
@@ -258,7 +264,7 @@
                                     <td class="project_date">12/03/2024</td>
                                     <td class="project_budget">1,200,211.00 $</td>
                                     <td class="project_team">Pings with Things</td>
-                                    <td class="project_team"><a class="btn btn-info" href="#" role="button">Detalhes</a></td>
+                                    <td class="project_details"><a class="btn btn-info" href="{{ route('project-details')}}" role="button">Detalhes</a></td>
                                 </tr>
                                 <tr>
                                     <th scope="row" class="project_id">2</th>
@@ -266,7 +272,7 @@
                                     <td class="project_date">20/06/2023</td>
                                     <td class="project_budget">0 $</td>
                                     <td class="project_team">PVSix</td>
-                                    <td class="project_team"><a class="btn btn-info" href="#" role="button">Detalhes</a></td>
+                                    <td class="project_details"><a class="btn btn-info" href="{{ route('project-details')}}" role="button">Detalhes</a></td>
                                 </tr>
                                 <tr>
                                     <th scope="row" class="project_id">4</th>
@@ -274,7 +280,7 @@
                                     <td class="project_date">19/01/2024</td>
                                     <td class="project_budget">0 $</td>
                                     <td class="project_team">PVSix</td>
-                                    <td class="project_team"><a class="btn btn-info" href="#" role="button">Detalhes</a></td>
+                                    <td class="project_details"><a class="btn btn-info" href="{{ route('project-details')}}" role="button">Detalhes</a></td>
                                 </tr>
                                 <tr>
                                     <th scope="row" class="project_id">3</th>
@@ -282,7 +288,7 @@
                                     <td class="project_date">02/08/2024</td>
                                     <td class="project_budget">2,200,211.00 $</td>
                                     <td class="project_team">PVSix</td>
-                                    <td class="project_team"><a class="btn btn-info" href="#" role="button">Detalhes</a></td>
+                                    <td class="project_details"><a class="btn btn-info" href="{{ route('project-details')}}" role="button">Detalhes</a></td>
                                 </tr>
                                 <tr>
                                     <th scope="row" class="project_id">1</th>
@@ -290,7 +296,7 @@
                                     <td class="project_date">12/03/2024</td>
                                     <td class="project_budget">1,200,211.00 $</td>
                                     <td class="project_team">Pings with Things</td>
-                                    <td class="project_team"><a class="btn btn-info" href="#" role="button">Detalhes</a></td>
+                                    <td class="project_details"><a class="btn btn-info" href="{{ route('project-details')}}" role="button">Detalhes</a></td>
                                 </tr>
                                 <tr>
                                     <th scope="row" class="project_id">2</th>
@@ -298,7 +304,7 @@
                                     <td class="project_date">20/06/2023</td>
                                     <td class="project_budget">0 $</td>
                                     <td class="project_team">PVSix</td>
-                                    <td class="project_team"><a class="btn btn-info" href="#" role="button">Detalhes</a></td>
+                                    <td class="project_details"><a class="btn btn-info" href="{{ route('project-details')}}" role="button">Detalhes</a></td>
                                 </tr>
                                 <tr>
                                     <th scope="row" class="project_id">4</th>
@@ -306,7 +312,7 @@
                                     <td class="project_date">19/01/2024</td>
                                     <td class="project_budget">0 $</td>
                                     <td class="project_team">PVSix</td>
-                                    <td class="project_team"><a class="btn btn-info" href="#" role="button">Detalhes</a></td>
+                                    <td class="project_details"><a class="btn btn-info" href="{{ route('project-details')}}" role="button">Detalhes</a></td>
                                 </tr>
                                 <tr>
                                     <th scope="row" class="project_id">3</th>
@@ -314,7 +320,7 @@
                                     <td class="project_date">02/08/2024</td>
                                     <td class="project_budget">2,200,211.00 $</td>
                                     <td class="project_team">PVSix</td>
-                                    <td class="project_team"><a class="btn btn-info" href="#" role="button">Detalhes</a></td>
+                                    <td class="project_details"><a class="btn btn-info" href="{{ route('project-details')}}" role="button">Detalhes</a></td>
                                 </tr>
                                 <tr>
                                     <th scope="row" class="project_id">1</th>
@@ -322,7 +328,7 @@
                                     <td class="project_date">12/03/2024</td>
                                     <td class="project_budget">1,200,211.00 $</td>
                                     <td class="project_team">Pings with Things</td>
-                                    <td class="project_team"><a class="btn btn-info" href="#" role="button">Detalhes</a></td>
+                                    <td class="project_details"><a class="btn btn-info" href="{{ route('project-details')}}" role="button">Detalhes</a></td>
                                 </tr>
                                 <tr>
                                     <th scope="row" class="project_id">2</th>
@@ -330,7 +336,7 @@
                                     <td class="project_date">20/06/2023</td>
                                     <td class="project_budget">0 $</td>
                                     <td class="project_team">PVSix</td>
-                                    <td class="project_team"><a class="btn btn-info" href="#" role="button">Detalhes</a></td>
+                                    <td class="project_details"><a class="btn btn-info" href="{{ route('project-details')}}" role="button">Detalhes</a></td>
                                 </tr>
                                 <tr>
                                     <th scope="row" class="project_id">4</th>
@@ -338,7 +344,7 @@
                                     <td class="project_date">19/01/2024</td>
                                     <td class="project_budget">0 $</td>
                                     <td class="project_team">PVSix</td>
-                                    <td class="project_team"><a class="btn btn-info" href="#" role="button">Detalhes</a></td>
+                                    <td class="project_details"><a class="btn btn-info" href="{{ route('project-details')}}" role="button">Detalhes</a></td>
                                 </tr>
                                 <tr>
                                     <th scope="row" class="project_id">3</th>
@@ -346,7 +352,7 @@
                                     <td class="project_date">02/08/2024</td>
                                     <td class="project_budget">2,200,211.00 $</td>
                                     <td class="project_team">PVSix</td>
-                                    <td class="project_team"><a class="btn btn-info" href="#" role="button">Detalhes</a></td>
+                                    <td class="project_details"><a class="btn btn-info" href="{{ route('project-details')}}" role="button">Detalhes</a></td>
                                 </tr>
                                 <tr>
                                     <th scope="row" class="project_id">1</th>
@@ -354,7 +360,7 @@
                                     <td class="project_date">12/03/2024</td>
                                     <td class="project_budget">1,200,211.00 $</td>
                                     <td class="project_team">Pings with Things</td>
-                                    <td class="project_team"><a class="btn btn-info" href="#" role="button">Detalhes</a></td>
+                                    <td class="project_details"><a class="btn btn-info" href="{{ route('project-details')}}" role="button">Detalhes</a></td>
                                 </tr>
                                 <tr>
                                     <th scope="row" class="project_id">2</th>
@@ -362,7 +368,7 @@
                                     <td class="project_date">20/06/2023</td>
                                     <td class="project_budget">0 $</td>
                                     <td class="project_team">PVSix</td>
-                                    <td class="project_team"><a class="btn btn-info" href="#" role="button">Detalhes</a></td>
+                                    <td class="project_details"><a class="btn btn-info" href="{{ route('project-details')}}" role="button">Detalhes</a></td>
                                 </tr>
                                 <tr>
                                     <th scope="row" class="project_id">4</th>
@@ -370,7 +376,7 @@
                                     <td class="project_date">19/01/2024</td>
                                     <td class="project_budget">0 $</td>
                                     <td class="project_team">PVSix</td>
-                                    <td class="project_team"><a class="btn btn-info" href="#" role="button">Detalhes</a></td>
+                                    <td class="project_details"><a class="btn btn-info" href="{{ route('project-details') }}" role="button">Detalhes</a></td>
                                 </tr>
                                 <tr>
                                     <th scope="row" class="project_id">3</th>
@@ -378,7 +384,7 @@
                                     <td class="project_date">02/08/2024</td>
                                     <td class="project_budget">2,200,211.00 $</td>
                                     <td class="project_team">PVSix</td>
-                                    <td class="project_team"><a class="btn btn-info" href="#" role="button">Detalhes</a></td>
+                                    <td class="project_details"><a class="btn btn-info" href="{{ route('project-details')}}" role="button">Detalhes</a></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -409,7 +415,7 @@
                                     <td class="project_name">Criação da página home</td>
                                     <td class="project_date">12/03/2024</td>
                                     <td class="project_team">21</td>
-                                    <td class="project_team"><a class="btn btn-info" href="#" role="button">Detalhes</a></td>
+                                    <td class="task_details"><a class="btn btn-info" href="{{ route('tasks-details')}}" role="button">Detalhes</a></td>
                                     <td class="project_team"><button type="button" class="btn btn-danger">Apagar</button></td>
                                 </tr>
                                 <tr>
@@ -417,7 +423,7 @@
                                     <td class="project_name">Criação da página home</td>
                                     <td class="project_date">12/03/2024</td>
                                     <td class="project_team">21</td>
-                                    <td class="project_team"><a class="btn btn-info" href="#" role="button">Detalhes</a></td>
+                                    <td class="task_details"><a class="btn btn-info" href="{{ route('tasks-details')}}" role="button">Detalhes</a></td>
                                     <td class="project_team"><button type="button" class="btn btn-danger">Apagar</button></td>
                                 </tr>
                             </tbody>
@@ -469,4 +475,5 @@
             </div>
         </div>
     </div>
+    
 @endsection
