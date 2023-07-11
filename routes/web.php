@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\projectoController;
+use App\Models\User;
+use App\Models\Tenant;
+use App\Models\Project;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,7 +25,8 @@ Route::get('/blank', function () {
 })->name('blank');
 
 Route::get('/home', function () {
-    return view('tamplates.home');
+    $projecto = Project::all();
+    return view('tamplates.home', ['projecto'=>$projecto]);
 })->name('home');
 
 Route::get('/project-details', function () {
@@ -38,8 +42,16 @@ Route::get('/team-details', function () {
 })->name('team-details');
 
 Route::get('/projecto-form', function () {
-    return view('forms.form-project');
+    $user = User::all();
+    $tenant = Tenant::all();
+    return view('forms.form-project', ['user'=>$user, 'tenant'=>$tenant]);
 })->name('novo-projecto');
+
+Route::get('/projecto-form/create', [projectoController::class, 'create'])->name('novo-projecto');
+Route::post('/', [projectoController::class, 'store'])->name('project-store');
+Route::get('projecto/{id}/edit', [projectoController::class, 'edit'])->name('form-edit');
+Route::put('projecto/{id}', [projectoController::class, 'update'])->name('projecto-update');
+Route::delete('projecto/{id}/deletar', [projectoController::class, 'destroy'])->name('projecto-delete');
 
 Route::get('/reset-password', function () {
     return view('tamplates.change-password');

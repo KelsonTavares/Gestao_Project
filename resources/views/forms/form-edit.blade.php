@@ -1,9 +1,6 @@
 @extends('../layout/layout')
-
 @section('content')
-
     <!-- Content Wrapper -->
-    
     <div id="content-wrapper" class="d-flex flex-column">
 
         <!-- Main Content -->
@@ -178,37 +175,33 @@
                     <div class="topbar-divider d-none d-sm-block"></div>
 
                     <!-- Nav Item - User Information -->
-
-                    <!-- Example single danger button -->
-
                     <li class="nav-item dropdown no-arrow">
-
-                        <!-- Example single danger button -->
-                        <div class="nav-item" id="userDropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Luís Kaquinda</span>
-                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Luís Kaquinda</span>
+                            <img class="img-profile rounded-circle"
+                                src="img/undraw_profile.svg">
+                        </a>
+                        <!-- Dropdown - User Information -->
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                            aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Profile
                             </a>
-
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{{ route('login') }}">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
-                                </a>
-                            </div>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Settings
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Activity Log
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Logout
+                            </a>
                         </div>
                     </li>
 
@@ -216,110 +209,111 @@
 
             </nav>
 
-            {{-- Projects --}}
-
-            <div class="row m-2">
-
-                <div class="button-container row">
-                    <h1 class="col-10">Área de Projectos</h1>
-                    <a href="{{ route('novo-projecto') }}" id="button" class="col-2 btn btn-primary">Adicionar</a>
-                </div>
-
-                <div class="row pr-0 mb-2">
-                <div class="list-group list-group-horizontal col-12" id="list-tab" role="tablist">
-                    <a class="list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab" aria-controls="list-home">Projectos</a>
-                    <a class="list-group-item list-group-item-action" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab" aria-controls="list-profile">Tarefas</a>
-                    <a class="list-group-item list-group-item-action" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab" aria-controls="list-messages">Equipes</a>
-                </div>
-                </div>
-
-                <div class="row">
-                <div class="tab-content col-12 p-0" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Nome</th>
-                                    <th>Prazo</th>
-                                    <th>Orçamento</th>
-                                    <th>Detalhes</th>
-                                </tr>
-                            </thead>
-                            <tfoot>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Nome</th>
-                                    <th>Prazo</th>
-                                    <th>Orçamento</th>
-                                    <th>Detalhes</th>
-                                </tr>
-                            </tfoot>
-                            <tbody>
-                                @foreach ($projecto as $proj)
-                                    <tr>
-                                        <th scope="row" class="project_">{{$proj->id}}</th>
-                                        <td class="project_name">{{$proj->name}}</td>
-                                        <td class="project_date">{{$proj->deadline}}</td>
-                                        <td class="project_budget">{{$proj->budget}}</td>
-                                        <td class="project_details"><a class="btn btn-info" href="{{ route('form-edit',['id'=>$proj->id])}}" role="button">Editar</a> 
-                                            <form action="{{route('projecto-delete', $proj->id)}}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <input type="submit" class="btn btn-danger" value="Deletar">
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                                
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Nome</th>
-                                    <th>Criação</th>
-                                    <th>Total Projectos</th>
-                                    <th>Detalhes</th>
-                                </tr>
-                            </thead>
-                            <tfoot>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Nome</th>
-                                    <th>Criação</th>
-                                    <th>Total Projectos</th>
-                                    <th>Detalhes</th>
-                                </tr>
-                            </tfoot>
-                            <tbody>
-                                <tr>
-                                    <th scope="row" class="project_id">1</th>
-                                    <td class="project_name">Pings with ThingsPings</td>
-                                    <td class="project_date">12/03/2024</td>
-                                    <td class="project_team">21</td>
-                                    <td class="project_team"><a class="btn btn-info" href="#" role="button">Detalhes</a></td>
-                                    <td class="project_team"><button type="button" class="btn btn-danger">Eliminar</button></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="project_id">1</th>
-                                    <td class="project_name">PVSix</td>
-                                    <td class="project_date">02/01/2023</td>
-                                    <td class="project_team">1</td>
-                                    <td class="project_team"><a class="btn btn-info" href="#" role="button">Detalhes</a></td>
-                                    <td class="project_team"><button type="button" class="btn btn-danger">Eliminar</button></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                </div>
-
-            </div>
+            {{-- Projects | Tasks | Teams --}}
         </div>
+
+        <div class="row m-2">
+
+            <div class="button-container row">
+                <h1 class="col-10">Editar</h1>
+            </div>
+
+            <div class="row pr-0 mb-2">
+            <div class="list-group list-group-horizontal col-12" id="list-tab" role="tablist">
+                <a class="list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab" aria-controls="list-home">Projecto</a>
+                <a class="list-group-item list-group-item-action" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab" aria-controls="list-profile">Tarefa</a>
+                <a class="list-group-item list-group-item-action" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab" aria-controls="list-messages">Equipe</a>
+            </div>
+            </div>
+
+            <div class="row">
+            <div class="tab-content col-12 p-0" id="nav-tabContent">
+                
+                {{-- Projects --}}
+
+                <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+                    <form method="POST" action="{{route('projecto-update',['id'=>$projecto->id])}}">
+                        @csrf
+                        @method('PUT')
+                        <div class="mb-3">
+
+                          <div class="col">
+                            <label for="exampleInputEmail1" class="form-label">Nome do Projecto</label>
+                            <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$projecto->name}}">
+                          </div>
+
+                            <div class="col">
+                                    <div class="input-group my-3">
+                                        <label class="input-group-text" for="inputGroupSelect01">Responsavél</label>
+                                        <select class="form-select" id="inputGroupSelect01" name="user_id"> 
+                                            
+                                            <option value="{{$projecto->user_id}}">{{$projecto->user->name}}</option>                                            
+                                                
+                                        </select>
+                                    </div>
+                            </div>
+
+                            
+                        </div>
+
+                        
+                        
+                        <div class="mb-3">
+                            <div class="input-group input-daterange">
+
+                                <div class="col">
+                                    <label class="form-control-placeholder mr-2" id="end-p" for="end">Data de Termino</label>
+                                    <input type="date" id="end" class="form-control text-left" name="deadline" value="{{$projecto->deadline}}">
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="mb-3">
+
+                            <div class="col">
+                              <div class="input-group my-3">
+
+                                <div class="form-group">
+                                    <label class="form-check-label ml-4">
+                                        <input class="form-check-input" type="checkbox" onchange="mostrarOcultarConteudo(this)">
+                                        Orçamentado
+                                    </label>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="col">
+                                <div id="conteudo" style="display: none;">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">$</span>
+                                        <input type="text" name="budget" class="form-control" aria-label="Amount (to the nearest dollar)" value="{{$projecto->budget}}">
+                                        <span class="input-group-text">.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Comentario</label>
+                            <input type="text" name="comments" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$projecto->comments}}">
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="col">
+                                <div class="input-group">
+                                    <span class="input-group-text">Descrição</span>
+                                    <textarea name="description" class="form-control" aria-label="With textarea" value="{{$projecto->description}}"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <button type="submit" class="btn btn-success">Salvar</button>
+                            <button type="submit" class="btn btn-danger">Limpar</button>
+                        </div>
+                    </form>
+                </div>
     </div>
-    
 @endsection
