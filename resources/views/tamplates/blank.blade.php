@@ -216,108 +216,15 @@
 
             </nav>
 
-            {{-- Projects --}}
-
-            <div class="row m-2">
-
-                <div class="button-container row">
-                    <h1 class="col-10">Área de Projectos</h1>
-                    <a href="{{ route('novo-projecto') }}" id="button" class="col-2 btn btn-primary">Adicionar</a>
-                </div>
-
-                <div class="row pr-0 mb-2">
-                <div class="list-group list-group-horizontal col-12" id="list-tab" role="tablist">
-                    <a class="list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab" aria-controls="list-home">Projectos</a>
-                    <a class="list-group-item list-group-item-action" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab" aria-controls="list-profile">Tarefas</a>
-                    <a class="list-group-item list-group-item-action" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab" aria-controls="list-messages">Equipes</a>
-                </div>
-                </div>
-
+            {{-- Aqui abaixo colocamos tudo --}}
+            
+            <div class="container">
                 <div class="row">
-                <div class="tab-content col-12 p-0" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Nome</th>
-                                    <th>Prazo</th>
-                                    <th>Orçamento</th>
-                                    <th>Detalhes</th>
-                                </tr>
-                            </thead>
-                            <tfoot>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Nome</th>
-                                    <th>Prazo</th>
-                                    <th>Orçamento</th>
-                                    <th>Detalhes</th>
-                                </tr>
-                            </tfoot>
-                            <tbody>
-                                @foreach ($projecto as $proj)
-                                    <tr>
-                                        <th scope="row" class="project_">{{$proj->id}}</th>
-                                        <td class="project_name">{{$proj->name}}</td>
-                                        <td class="project_date">{{$proj->deadline}}</td>
-                                        <td class="project_budget">{{$proj->budget}}</td>
-                                        <td class="project_details"><a class="btn btn-info" href="{{ route('form-edit',['id'=>$proj->id])}}" role="button">Editar</a> 
-                                            <form action="{{route('projecto-delete', $proj->id)}}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <input type="submit" class="btn btn-danger" value="Deletar">
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                                
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Nome</th>
-                                    <th>Criação</th>
-                                    <th>Total Projectos</th>
-                                    <th>Detalhes</th>
-                                </tr>
-                            </thead>
-                            <tfoot>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Nome</th>
-                                    <th>Criação</th>
-                                    <th>Total Projectos</th>
-                                    <th>Detalhes</th>
-                                </tr>
-                            </tfoot>
-                            <tbody>
-                                <tr>
-                                    <th scope="row" class="project_id">1</th>
-                                    <td class="project_name">Pings with ThingsPings</td>
-                                    <td class="project_date">12/03/2024</td>
-                                    <td class="project_team">21</td>
-                                    <td class="project_team"><a class="btn btn-info" href="#" role="button">Detalhes</a></td>
-                                    <td class="project_team"><button type="button" class="btn btn-danger">Eliminar</button></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="project_id">1</th>
-                                    <td class="project_name">PVSix</td>
-                                    <td class="project_date">02/01/2023</td>
-                                    <td class="project_team">1</td>
-                                    <td class="project_team"><a class="btn btn-info" href="#" role="button">Detalhes</a></td>
-                                    <td class="project_team"><button type="button" class="btn btn-danger">Eliminar</button></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="col-12 text-center">
+                        <h1 class="">Ups! Ainda não tens projectos.</h1>
+                        <a href="{{ route('novo-projecto') }}" id="button" class="col-2 btn btn-primary">Adicionar</a>
                     </div>
                 </div>
-                </div>
-
             </div>
         </div>
     </div>

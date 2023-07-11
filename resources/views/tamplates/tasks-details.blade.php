@@ -216,109 +216,115 @@
 
             </nav>
 
-            {{-- Projects --}}
+            {{-- Tasks --}}
 
             <div class="row m-2">
 
-                <div class="button-container row">
-                    <h1 class="col-10">Área de Projectos</h1>
-                    <a href="{{ route('novo-projecto') }}" id="button" class="col-2 btn btn-primary">Adicionar</a>
-                </div>
+                <div class="col-12">
+                    <div class="card p-2" style="width: 100%;">
+                        
+                        <div class="card-body">
+                            <img src="{{asset('/img/task.png')}}" style="width: 20%" class="card-img-top" alt="Imagem do Projecto">
+                        </div>
 
-                <div class="row pr-0 mb-2">
-                <div class="list-group list-group-horizontal col-12" id="list-tab" role="tablist">
-                    <a class="list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab" aria-controls="list-home">Projectos</a>
-                    <a class="list-group-item list-group-item-action" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab" aria-controls="list-profile">Tarefas</a>
-                    <a class="list-group-item list-group-item-action" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab" aria-controls="list-messages">Equipes</a>
-                </div>
-                </div>
+                        <div class="card-body">
+                            <h1 class="card-title">Tarefa 1</h1>
+                            <p class="fw-normal">Projecto <span>1</span></p>
+                        </div>
 
-                <div class="row">
-                <div class="tab-content col-12 p-0" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Nome</th>
-                                    <th>Prazo</th>
-                                    <th>Orçamento</th>
-                                    <th>Detalhes</th>
-                                </tr>
-                            </thead>
-                            <tfoot>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Nome</th>
-                                    <th>Prazo</th>
-                                    <th>Orçamento</th>
-                                    <th>Detalhes</th>
-                                </tr>
-                            </tfoot>
-                            <tbody>
-                                @foreach ($projecto as $proj)
-                                    <tr>
-                                        <th scope="row" class="project_">{{$proj->id}}</th>
-                                        <td class="project_name">{{$proj->name}}</td>
-                                        <td class="project_date">{{$proj->deadline}}</td>
-                                        <td class="project_budget">{{$proj->budget}}</td>
-                                        <td class="project_details"><a class="btn btn-info" href="{{ route('form-edit',['id'=>$proj->id])}}" role="button">Editar</a> 
-                                            <form action="{{route('projecto-delete', $proj->id)}}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <input type="submit" class="btn btn-danger" value="Deletar">
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @endforeach
+                        <div class="card-body">
+                          <h5 class="card-title">Descrição da Tarefa</h5>
+                          <p class="card-text px-4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex, dicta dolor. Soluta, a. Reiciendis molestias sapiente voluptas nemo dolores ex quis ut maxime numquam fuga provident, amet debitis at illum.</p>
+                        </div>
+
+                        <ul class="list-group list-group-flush p-4">
+                            <div class="row">
+
+                                <div class="col-6">
+                                    <li class="list-group-item">Orçamento</li>
+                                    <li class="list-group-item">Data de Entrega</li>
+                                    <li class="list-group-item">Assinante</li>
+                                </div>
                                 
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Nome</th>
-                                    <th>Criação</th>
-                                    <th>Total Projectos</th>
-                                    <th>Detalhes</th>
-                                </tr>
-                            </thead>
-                            <tfoot>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Nome</th>
-                                    <th>Criação</th>
-                                    <th>Total Projectos</th>
-                                    <th>Detalhes</th>
-                                </tr>
-                            </tfoot>
-                            <tbody>
-                                <tr>
-                                    <th scope="row" class="project_id">1</th>
-                                    <td class="project_name">Pings with ThingsPings</td>
-                                    <td class="project_date">12/03/2024</td>
-                                    <td class="project_team">21</td>
-                                    <td class="project_team"><a class="btn btn-info" href="#" role="button">Detalhes</a></td>
-                                    <td class="project_team"><button type="button" class="btn btn-danger">Eliminar</button></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="project_id">1</th>
-                                    <td class="project_name">PVSix</td>
-                                    <td class="project_date">02/01/2023</td>
-                                    <td class="project_team">1</td>
-                                    <td class="project_team"><a class="btn btn-info" href="#" role="button">Detalhes</a></td>
-                                    <td class="project_team"><button type="button" class="btn btn-danger">Eliminar</button></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                </div>
+                                <div class="col-6 text-end"> 
+                                    <li class="list-group-item">1.293.234,23</li>
+                                    <li class="list-group-item">12/02/2023</li>
+                                    <li class="list-group-item">
 
+                                        <div class="container text-end">
+                                            <div class="row row-cols-auto align-items-center">
+                                                <div class="col align-items-center">
+                                                    <img class="img-profile rounded-circle" style="width: 6%;" src="img/undraw_profile_2.svg">
+                                                    Luís Kaquinda
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </li>
+                                </div>
+
+                            </div>
+
+                        </ul>
+
+                        <div class="card-body">
+                            <h5 class="card-title">Progresso</h5>
+                            <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar" style="width: 75%">75%</div>
+                            </div>
+                        </div>
+
+
+                        <div class="card-body">
+                            <div class="row">
+
+                                <div class="col-6">
+                                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                                    <button type="submit" class="btn btn-secondary">Editar</button>
+                                </div>
+
+                                <div class="col-6 text-end">
+                                    <a href="caminho/do/arquivo.pdf" class="btn btn-secondary" download>Download Relatório</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            {{-- End project details --}}
+
+            {{-- project element details --}}
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <form>
+                        <div class="mb-3">
+                          <label for="recipient-name" class="col-form-label">Recipient:</label>
+                          <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="mb-3">
+                          <label for="message-text" class="col-form-label">Message:</label>
+                          <textarea class="form-control" id="message-text"></textarea>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Send message</button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+            {{-- End project element details --}}
+
         </div>
     </div>
     

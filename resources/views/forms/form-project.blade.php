@@ -209,7 +209,7 @@
 
             </nav>
 
-            {{-- Projects --}}
+            {{-- Projects | Tasks | Teams --}}
 
             <div class="row m-2">
 
@@ -231,55 +231,51 @@
                     {{-- Projects --}}
 
                     <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
-                        <form>
+                        <form method="POST" action="{{route('project-store')}}">
                             @csrf
 
                             <div class="mb-3">
 
                               <div class="col">
                                 <label for="exampleInputEmail1" class="form-label">Nome do Projecto</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                               </div>
 
                                 <div class="col">
                                         <div class="input-group my-3">
                                             <label class="input-group-text" for="inputGroupSelect01">Responsavél</label>
-
-                                            <select class="form-select" id="inputGroupSelect01">
-                                            <option selected>Isabel Bongo</option>
-                                            <option value="1">Luís Kaquinda</option>
-                                            <option value="2">Gabriel Cipriano</option>
-                                            <option value="3">Mandanji Bastos</option>
+                                            <select class="form-select" id="inputGroupSelect01" name="user_id">
+                                                <option selected>Isabel Bongo</option>
+                                                {{-- {{dd($user)}} --}}
+                                                @foreach ($user as $us )
+                                                    <option value="{{$us->id}}">{{$us->name}}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                 </div>
 
                                 <div class="col">
                                     <div class="input-group my-3">
-                                        <label class="input-group-text" for="inputGroupSelect01">Equipe</label>
-
-                                        <select class="form-select" id="inputGroupSelect01">
-                                        <option selected>Pings with Things</option>
-                                        <option value="1">PVSix</option>
-                                        <option value="2">teamCat6</option>
-                                        <option value="3">P2P</option>
+                                        <label class="input-group-text" for="inputGroupSelect01">Responsavél</label>
+                                        <select class="form-select" id="inputGroupSelect01" name="tenant_id">
+                                            <option selected>Tenant</option>
+                                            {{-- {{dd($user)}} --}}
+                                            @foreach ($tenant as $ten )
+                                                <option value="{{$ten->id}}">{{$ten->name}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
-                                </div>
+                            </div>
                             </div>
 
+                            
                             
                             <div class="mb-3">
                                 <div class="input-group input-daterange">
 
                                     <div class="col">
-                                        <label class="form-control-placeholder mr-2" id="start-p" for="start">Data de Início</label>
-                                        <input type="date" id="start" class="form-control text-left mr-2">
-                                    </div>
-
-                                    <div class="col">
                                         <label class="form-control-placeholder mr-2" id="end-p" for="end">Data de Termino</label>
-                                        <input type="date" id="end" class="form-control text-left">
+                                        <input type="date" id="end" class="form-control text-left" name="deadline">
                                     </div>
 
                                 </div>
@@ -304,14 +300,14 @@
                                     <div id="conteudo" style="display: none;">
                                         <div class="input-group mb-3">
                                             <span class="input-group-text">$</span>
-                                            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" value="0">
+                                            <input type="text" name="budget" class="form-control" aria-label="Amount (to the nearest dollar)" value="0">
                                             <span class="input-group-text">.00</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="mb-3">
+                            {{-- <div class="mb-3">
                                 <div class="col">
                                     <div class="input-group my-3">
                                         <label class="input-group-text" for="inputGroupSelect01">Equipe</label>
@@ -324,13 +320,18 @@
                                         </select>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
+
+                            <div class="col mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Comentario</label>
+                                <input type="text" name="comments" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                              </div>
 
                             <div class="mb-3">
                                 <div class="col">
                                     <div class="input-group">
                                         <span class="input-group-text">Descrição</span>
-                                        <textarea class="form-control" aria-label="With textarea"></textarea>
+                                        <textarea name="description" class="form-control" aria-label="With textarea"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -352,7 +353,7 @@
 
                               <div class="col">
                                 <label for="exampleInputEmail1" class="form-label">Nome da Tarefa</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="name">
                               </div>
 
                                 <div class="col">
@@ -360,10 +361,10 @@
                                             <label class="input-group-text" for="inputGroupSelect01">Projecto</label>
 
                                             <select class="form-select" id="inputGroupSelect01">
-                                            <option selected>Projecto 1</option>
-                                            <option value="1">Projecto 2</option>
-                                            <option value="2">Projecto 3</option>
-                                            <option value="3">Projecto 4</option>
+                                            <option selected>Selecione o Projecto</option>
+                                            @foreach ($projecto as $proj )
+                                                    <option value="{{$proj->id}}">{{$proj->name}}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                 </div>
@@ -384,6 +385,21 @@
                                         <input type="date" id="end" class="form-control text-left">
                                     </div>
 
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <div class="col">
+                                        <div class="input-group my-3">
+                                            <label class="input-group-text" for="inputGroupSelect01">Assinatura</label>
+
+                                            <select class="form-select" id="inputGroupSelect01">
+                                            <option selected>Luís Kaquinda</option>
+                                            <option value="1">Mandanji Bastos</option>
+                                            <option value="2">Lucas Cardoso</option>
+                                            <option value="3">Kelson Ango-Sat</option>
+                                            </select>
+                                        </div>
                                 </div>
                             </div>
 
