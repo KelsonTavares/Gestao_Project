@@ -22,9 +22,10 @@ class AdminController extends Controller
      */
     public function index(Request $request)
     {
-        // dd(Tenant::with('domains')->get());
         if ($request->ajax()) {
             $ies = Tenant::with('domains')->get();
+            // dd(Tenant::with('domains')->get());
+            dd($ies[0]->domains[0]->domain);
             
             return DataTables::of($ies)->make(true);
         }
@@ -100,7 +101,7 @@ class AdminController extends Controller
      */
     // public function edit($id): View
     // {
-    //     $tenant = $this->tenantService->show($id);
+    //     $tenant = $this->->show($id);
     //     return view('Admin.edit', compact('tenant'));
     // }
 

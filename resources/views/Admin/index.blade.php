@@ -66,7 +66,7 @@
 @section('js')
     <script>
         $(function() {
-            var tableescritorio = $("#ies").DataTable({
+            var tableIES = $("#ies").DataTable({
                 responsive: true,
                 processing: true,
                 serverSide: true,
@@ -82,7 +82,8 @@
                     orderable: false,
                     targets: [0, 2]
                 }],
-                columns: [{
+                columns: [
+                    {
                         'data': null
                     },
                     {
@@ -90,7 +91,6 @@
                     },
                     {
                         "data": function(data) {
-
 
                             var domains = '';
                             $.each(data.domains, function(key, value) {
@@ -102,7 +102,7 @@
                     },
                     {
                         "data": function (data) {
-                            return data.status ? '<span class="bg-success">Activo</span>':'<span class="bg-danger">desativado</span>'
+                            return data.status ? '<span class="bg-success">Activo</span>':'<span class="bg-danger">Desativado</span>'
                         }
                     },
                     {
@@ -153,7 +153,7 @@
                     })
             });
 
-            tableescritorio.on('draw.dt', function() {
+            tableIES.on('draw.dt', function() {
                 var PageInfo = $('#ies').DataTable().page.info();
                 tableescritorio.column(0, {
                     page: 'current'
@@ -163,8 +163,8 @@
             });
 
 
-            tableescritorio.on('order.dt search.dt', () => {
-                tableescritorio.column(0, {
+            tableIES.on('order.dt search.dt', () => {
+                tableIES.column(0, {
                     search: 'applied',
                     order: 'applied'
                 }).nodes().each(function(cell, i) {
