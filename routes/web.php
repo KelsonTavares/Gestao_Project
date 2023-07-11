@@ -55,6 +55,8 @@ use App\Http\Controllers\Auth\RegisterController;
 //     return view('tamplates.locatorio');
 // })->name('locatorio');
 
-Route::get('login/{id?}', [LoginController::class, 'showLoginForm'])->name('login');
+// Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 
-Route::get('register/{id?}', [RegisterController::class, 'showRegistrationForm'])->name('register');
+// Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+
+Auth::routes();
