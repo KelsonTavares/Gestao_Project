@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\projectoController;
 use App\Models\User;
@@ -16,11 +18,15 @@ use App\Models\Project;
 |
 */
 
-Route::get('/', function () {
+Auth::routes();
+Route::get('/home', [AdminController::class, 'home']);
+Route::resource('ies', AdminController::class);
+
+Route::get('/login', function () {
     return view('tamplates.login');
 })->name('login');
 
-Route::get('/blank', function () {
+Route::get('/', function () {
     return view('tamplates.blank');
 })->name('blank');
 
