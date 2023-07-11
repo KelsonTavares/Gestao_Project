@@ -37,7 +37,7 @@ class projectoController extends Controller
     public function store(Request $request)
     {
         Project::create($request->all());
-        return redirect()->route('project-details');
+        return redirect()->route('home');
     }
 
     /**
@@ -100,7 +100,7 @@ class projectoController extends Controller
     {
         $projecto = Project::find($id);
         DB::beginTransaction();
-        $projecto->user->delete();
+        #$projecto->user->delete();
         $projecto->delete();
         DB::Commit();
         return redirect()->route('home');

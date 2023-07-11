@@ -346,7 +346,7 @@
                     {{-- Tasks --}}
 
                     <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
-                        <form>
+                        <form action="{{route('task-store')}}" method="POST">
                             @csrf
 
                             <div class="mb-3">
@@ -360,12 +360,11 @@
                                         <div class="input-group my-3">
                                             <label class="input-group-text" for="inputGroupSelect01">Projecto</label>
 
-                                            <select class="form-select" id="inputGroupSelect01">
-                                            <option selected>Selecione o Projecto</option>
-                                            @foreach ($projecto as $proj )
+                                            <select class="form-select" id="inputGroupSelect01" name="project_id">
+                                                @foreach ($projecto as $proj )
                                                     <option value="{{$proj->id}}">{{$proj->name}}</option>
                                                 @endforeach
-                                            </select>
+                                                
                                         </div>
                                 </div>
                             </div>
@@ -374,15 +373,9 @@
 
                             <div class="mb-3">
                                 <div class="input-group input-daterange">
-
-                                    <div class="col">
-                                        <label class="form-control-placeholder mr-2" id="start-p" for="start">Data de Início</label>
-                                        <input type="date" id="start" class="form-control text-left mr-2">
-                                    </div>
-
                                     <div class="col">
                                         <label class="form-control-placeholder mr-2" id="end-p" for="end">Data de Termino</label>
-                                        <input type="date" id="end" class="form-control text-left">
+                                        <input type="date" id="end" class="form-control text-left" name="deadline">
                                     </div>
 
                                 </div>
@@ -393,11 +386,10 @@
                                         <div class="input-group my-3">
                                             <label class="input-group-text" for="inputGroupSelect01">Assinatura</label>
 
-                                            <select class="form-select" id="inputGroupSelect01">
-                                            <option selected>Luís Kaquinda</option>
-                                            <option value="1">Mandanji Bastos</option>
-                                            <option value="2">Lucas Cardoso</option>
-                                            <option value="3">Kelson Ango-Sat</option>
+                                            <select class="form-select" id="inputGroupSelect01" name="assigned_to">
+                                                @foreach ($user as $us )
+                                                    <option value="{{$us->id}}">{{$us->name}}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                 </div>
@@ -406,8 +398,18 @@
                             <div class="mb-3">
                                 <div class="col">
                                     <div class="input-group">
-                                        <span class="input-group-text">Descrição</span>
-                                        <textarea class="form-control" aria-label="With textarea"></textarea>
+                                        <span class="input-group-text">Tanant</span>
+                                        <select type="text" class="form-control" aria-label="With" name="tenant_id">
+                                            @foreach ($tenant as $ta )
+                                                <option value="{{$ta->id}}">{{$ta->name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col mt-3">
+                                    <div class="input-group">
+                                        <span class="input-group-text">Progress</span>
+                                        <input type="number" class="form-control" aria-label="With" name="progress">
                                     </div>
                                 </div>
                             </div>
@@ -445,16 +447,16 @@
                                               <div class="input-group my-3">
                                                   <label class="input-group-text" for="inputGroupSelect01">Adicionar membro</label>
 
-                                                  <select class="form-select" id="inputGroupSelect01">
-                                                    <option selected>Isabel Bongo</option>
-                                                    <option value="1">Luís Kaquinda</option>
-                                                    <option value="2">Gabriel Cipriano</option>
-                                                    <option value="3">Mandanji Bastos</option>
+                                                  <select class="form-select" id="inputGroupSelect01" name="user_id">
+                                                    <option selected>Selecione o usario</option>
+                                                    @foreach ($user as $us )
+                                                        <option value="{{$us->id}}">{{$us->name}}</option>
+                                                    @endforeach
                                                   </select>
                                               </div>
                                             </div>
 
-                                            <div class="col">
+                                            {{-- <div class="col">
                                                 <div class="input-group my-3">
                                                     <label class="input-group-text" for="inputGroupSelect01">Função</label>
   
@@ -465,17 +467,17 @@
                                                       <option value="3">DBA</option>
                                                     </select>
                                                 </div>
-                                            </div>
+                                            </div> --}}
           
                                             <div class="col">
                                               <div class="input-group my-3">
                                                   <label class="input-group-text" for="inputGroupSelect01">Equipe</label>
           
-                                                  <select class="form-select" id="inputGroupSelect01">
-                                                    <option selected>Pings with Things</option>
-                                                    <option value="1">PVSix</option>
-                                                    <option value="2">teamCat6</option>
-                                                    <option value="3">P2P</option>
+                                                  <select class="form-select" id="inputGroupSelect01" name="tanant_id">
+                                                    <option selected>Tenant</option>
+                                                    @foreach ($tenant as $ta )
+                                                        <option value="{{$ta->id}}">{{$ta->name}}</option>
+                                                    @endforeach
                                                   </select>
                                               </div>
                                             </div>
@@ -500,12 +502,12 @@
                                     <div class="accordion-body">
                                         <div class="mb-3">
 
-                                            <div class="col">
+                                            <div class="col mb-3">
                                                 <label for="exampleInputEmail1" class="form-label">Nome da Equipe</label>
-                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="name">
                                             </div>
             
-                                            <div class="col">
+                                            {{-- <div class="col">
                                                 <div class="input-group my-3">
                                                     <label class="input-group-text" for="inputGroupSelect01">Responsavél</label>
             
@@ -516,7 +518,7 @@
                                                     <option value="3">Mandanji Bastos</option>
                                                     </select>
                                                 </div>
-                                            </div>
+                                            </div> --}}
 
                                             <div class="col">
                                                 <div class="col">

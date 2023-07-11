@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ProjectTeam;
+use Illuminate\Support\Facades\DB; 
 
 class projectTeamController extends Controller
 {
@@ -23,7 +25,7 @@ class projectTeamController extends Controller
      */
     public function create()
     {
-        //
+        return view('forms.form-project');
     }
 
     /**
@@ -34,7 +36,8 @@ class projectTeamController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        ProjectTeam::create($request->all());
+        return redirect()->route('home');
     }
 
     /**
@@ -56,7 +59,14 @@ class projectTeamController extends Controller
      */
     public function edit($id)
     {
-        //
+        $projTeam = ProjectTeam::where('id', $id)->first();
+        $projecto = Project::all();
+        if(!empty($projTeam)){
+            return view('forms.editTask', compact('task','projecto'));
+        }
+        else{
+            return redirect()->route('home');
+        }
     }
 
     /**

@@ -220,89 +220,72 @@
 
             <div class="row pr-0 mb-2">
             <div class="list-group list-group-horizontal col-12" id="list-tab" role="tablist">
-                <a class="list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab" aria-controls="list-home">Projecto</a>
+                <a class="list-group-item list-group-item-action" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab" aria-controls="list-profile">Tarefa</a>
             </div>
             </div>
 
             <div class="row">
             <div class="tab-content col-12 p-0" id="nav-tabContent">
-                
-                {{-- Projects --}}
 
-                <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
-                    <form method="POST" action="{{route('projecto-update',['id'=>$projecto->id])}}">
+                <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+                    <form action="{{route('task-update',['id'=>$task->id])}}" method="POST">
                         @csrf
                         @method('PUT')
                         <div class="mb-3">
 
                           <div class="col">
-                            <label for="exampleInputEmail1" class="form-label">Nome do Projecto</label>
-                            <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$projecto->name}}">
+                            <label for="exampleInputEmail1" class="form-label">Nome da Tarefa</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="name" value="{{$task->name}}">
                           </div>
 
                             <div class="col">
                                     <div class="input-group my-3">
-                                        <label class="input-group-text" for="inputGroupSelect01">Responsavél</label>
-                                        <select class="form-select" id="inputGroupSelect01" name="user_id"> 
-                                            
-                                            <option value="{{$projecto->user_id}}">{{$projecto->user->name}}</option>                                            
-                                                
+                                        <label class="input-group-text" for="inputGroupSelect01">Projecto</label>
+
+                                        <select class="form-select" id="inputGroupSelect01" name="project_id">
+                                            <option value="{{$task->project_id}}">{{$task->project->name}}</option>
                                         </select>
                                     </div>
                             </div>
-
-                            
                         </div>
 
-                        
-                        
+                        {{-- Precisa estar dentro do prazo do projecto --}}
+
                         <div class="mb-3">
                             <div class="input-group input-daterange">
-
                                 <div class="col">
                                     <label class="form-control-placeholder mr-2" id="end-p" for="end">Data de Termino</label>
-                                    <input type="date" id="end" class="form-control text-left" name="deadline" value="{{$projecto->deadline}}">
+                                    <input type="date" id="end" class="form-control text-left" name="deadline" value="{{$task->deadline}}">
                                 </div>
 
                             </div>
                         </div>
-
 
                         <div class="mb-3">
-
                             <div class="col">
-                              <div class="input-group my-3">
+                                    <div class="input-group my-3">
+                                        <label class="input-group-text" for="inputGroupSelect01">Assinatura</label>
 
-                                <div class="form-group">
-                                    <label class="form-check-label ml-4">
-                                        <input class="form-check-input" type="checkbox" onchange="mostrarOcultarConteudo(this)">
-                                        Orçamentado
-                                    </label>
-                                </div>
-                              </div>
-                            </div>
-
-                            <div class="col">
-                                <div id="conteudo" style="display: none;">
-                                    <div class="input-group mb-3">
-                                        <span class="input-group-text">$</span>
-                                        <input type="text" name="budget" class="form-control" aria-label="Amount (to the nearest dollar)" value="{{$projecto->budget}}">
-                                        <span class="input-group-text">.00</span>
+                                        <select class="form-select" id="inputGroupSelect01" name="assigned_to">
+                                            <option value="{{$task->assigned_to}}">{{$task->assigned_to}}</option>
+                                        </select>
                                     </div>
-                                </div>
                             </div>
-                        </div>
-
-                        <div class="col mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Comentario</label>
-                            <input type="text" name="comments" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$projecto->comments}}">
                         </div>
 
                         <div class="mb-3">
                             <div class="col">
                                 <div class="input-group">
-                                    <span class="input-group-text">Descrição</span>
-                                    <textarea name="description" class="form-control" aria-label="With textarea" value="{{$projecto->description}}"></textarea>
+                                    <span class="input-group-text">Tanant</span>
+                                    <select type="text" class="form-control" aria-label="With" name="tenant_id">
+                                        <option value="{{$task->tenant_id}}">{{$task->tenant_id}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col mt-3">
+                                <div class="input-group">
+                                    <span class="input-group-text">Progress</span>
+                                    <input type="number" class="form-control" aria-label="With" name="progress" value="{{$task->progress}}">
                                 </div>
                             </div>
                         </div>
@@ -313,5 +296,6 @@
                         </div>
                     </form>
                 </div>
+
     </div>
 @endsection

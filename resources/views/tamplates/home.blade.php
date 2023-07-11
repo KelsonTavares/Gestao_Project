@@ -263,7 +263,7 @@
                                         <td class="project_date">{{$proj->deadline}}</td>
                                         <td class="project_budget">{{$proj->budget}}</td>
                                         <td class="project_details"><a class="btn btn-info" href="{{ route('form-edit',['id'=>$proj->id])}}" role="button">Editar</a> 
-                                            <form action="{{route('projecto-delete', $proj->id)}}" method="POST">
+                                            <form action="{{route('projecto-delete', $proj->id)}}" method="POST" class="mt-3">
                                                 @csrf
                                                 @method('DELETE')
                                                 <input type="submit" class="btn btn-danger" value="Deletar">
@@ -275,6 +275,50 @@
                             </tbody>
                         </table>
                     </div>
+                    
+                    <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nome</th>
+                                    <th>Criação</th>
+                                    <th>Projecto</th>
+                                    <th>User</th>
+                                    <th>Detalhes</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nome</th>
+                                    <th>Criação</th>
+                                    <th>Projecto</th>
+                                    <th>User</th>
+                                    <th>Detalhes</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                @foreach ($task as $proj)
+                                    <tr>
+                                        <th scope="row" class="project_">{{$proj->id}}</th>
+                                        <td class="project_name">{{$proj->name}}</td>
+                                        <td class="project_date">{{$proj->deadline}}</td>
+                                        <td class="project_date">{{$proj->project->name}}</td>
+                                        <td class="project_budget">{{$proj->assigned_to}}</td>
+                                        <td class="project_details"><a class="btn btn-info" href="{{ route('task-edit',['id'=>$proj->id])}}" role="button">Editar</a> 
+                                            <form action="{{route('task-delete', $proj->id)}}" method="POST" class="mt-3">
+                                                @csrf
+                                                @method('DELETE')
+                                                <input type="submit" class="btn btn-danger" value="Deletar">
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
                     <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>

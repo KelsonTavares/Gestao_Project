@@ -13,6 +13,7 @@ class ProjectTeam extends Model
         'name',
         'project_id',
         'user_id',
+        'tenant_id'
     ];
 
     public function project()
