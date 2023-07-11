@@ -7,6 +7,10 @@ use App\Http\Controllers\projectoController;
 use App\Models\User;
 use App\Models\Tenant;
 use App\Models\Project;
+
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +21,7 @@ use App\Models\Project;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 
 Auth::routes();
 Route::get('/home', [AdminController::class, 'home']);
@@ -35,17 +40,18 @@ Route::get('/home', function () {
     return view('tamplates.home', ['projecto'=>$projecto]);
 })->name('home');
 
-Route::get('/project-details', function () {
-    return view('tamplates.project-details');
-})->name('project-details');
+// Route::get('/project-details', function () {
+//     return view('tamplates.project-details');
+// })->name('project-details');
 
-Route::get('/tasks-details', function () {
-    return view('tamplates.tasks-details');
-})->name('tasks-details');
+// Route::get('/tasks-details', function () {
+//     return view('tamplates.tasks-details');
+// })->name('tasks-details');
 
-Route::get('/team-details', function () {
-    return view('tamplates.team-details');
-})->name('team-details');
+// Route::get('/team-details', function () {
+//     return view('tamplates.team-details');
+// })->name('team-details');
+
 
 Route::get('/projecto-form', function () {
     $user = User::all();
@@ -63,10 +69,17 @@ Route::get('/reset-password', function () {
     return view('tamplates.change-password');
 })->name('password');
 
-Route::get('/registrar', function () {
-    return view('tamplates.register');
-})->name('register');
 
-Route::get('/locatorio', function () {
-    return view('tamplates.locatorio');
-})->name('locatorio');
+// Route::get('/registrar', function () {
+//     return view('vendor.adminlte.auth.register');
+// })->name('register');
+
+// Route::get('/locatorio', function () {
+//     return view('tamplates.locatorio');
+// })->name('locatorio');
+
+// Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+
+// Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+
+Auth::routes();
