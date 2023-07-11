@@ -243,7 +243,6 @@
                                     <th>Nome</th>
                                     <th>Prazo</th>
                                     <th>Orçamento</th>
-                                    <th>Equipe</th>
                                     <th>Detalhes</th>
                                 </tr>
                             </thead>
@@ -253,179 +252,26 @@
                                     <th>Nome</th>
                                     <th>Prazo</th>
                                     <th>Orçamento</th>
-                                    <th>Equipe</th>
                                     <th>Detalhes</th>
                                 </tr>
                             </tfoot>
                             <tbody>
-                                <tr>
-                                    <th scope="row" class="project_id">1</th>
-                                    <td class="project_name">Google Website</td>
-                                    <td class="project_date">12/03/2024</td>
-                                    <td class="project_budget">1,200,211.00 $</td>
-                                    <td class="project_team">Pings with Things</td>
-                                    <td class="project_details"><a class="btn btn-info" href="{{ route('project-details')}}" role="button">Detalhes</a></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="project_id">2</th>
-                                    <td class="project_name">University Link</td>
-                                    <td class="project_date">20/06/2023</td>
-                                    <td class="project_budget">0 $</td>
-                                    <td class="project_team">PVSix</td>
-                                    <td class="project_details"><a class="btn btn-info" href="{{ route('project-details')}}" role="button">Detalhes</a></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="project_id">4</th>
-                                    <td class="project_name">BookFlix</td>
-                                    <td class="project_date">19/01/2024</td>
-                                    <td class="project_budget">0 $</td>
-                                    <td class="project_team">PVSix</td>
-                                    <td class="project_details"><a class="btn btn-info" href="{{ route('project-details')}}" role="button">Detalhes</a></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="project_id">3</th>
-                                    <td class="project_name">ERP Girassol</td>
-                                    <td class="project_date">02/08/2024</td>
-                                    <td class="project_budget">2,200,211.00 $</td>
-                                    <td class="project_team">PVSix</td>
-                                    <td class="project_details"><a class="btn btn-info" href="{{ route('project-details')}}" role="button">Detalhes</a></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="project_id">1</th>
-                                    <td class="project_name">Google Website</td>
-                                    <td class="project_date">12/03/2024</td>
-                                    <td class="project_budget">1,200,211.00 $</td>
-                                    <td class="project_team">Pings with Things</td>
-                                    <td class="project_details"><a class="btn btn-info" href="{{ route('project-details')}}" role="button">Detalhes</a></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="project_id">2</th>
-                                    <td class="project_name">University Link</td>
-                                    <td class="project_date">20/06/2023</td>
-                                    <td class="project_budget">0 $</td>
-                                    <td class="project_team">PVSix</td>
-                                    <td class="project_details"><a class="btn btn-info" href="{{ route('project-details')}}" role="button">Detalhes</a></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="project_id">4</th>
-                                    <td class="project_name">BookFlix</td>
-                                    <td class="project_date">19/01/2024</td>
-                                    <td class="project_budget">0 $</td>
-                                    <td class="project_team">PVSix</td>
-                                    <td class="project_details"><a class="btn btn-info" href="{{ route('project-details')}}" role="button">Detalhes</a></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="project_id">3</th>
-                                    <td class="project_name">ERP Girassol</td>
-                                    <td class="project_date">02/08/2024</td>
-                                    <td class="project_budget">2,200,211.00 $</td>
-                                    <td class="project_team">PVSix</td>
-                                    <td class="project_details"><a class="btn btn-info" href="{{ route('project-details')}}" role="button">Detalhes</a></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="project_id">1</th>
-                                    <td class="project_name">Google Website</td>
-                                    <td class="project_date">12/03/2024</td>
-                                    <td class="project_budget">1,200,211.00 $</td>
-                                    <td class="project_team">Pings with Things</td>
-                                    <td class="project_details"><a class="btn btn-info" href="{{ route('project-details')}}" role="button">Detalhes</a></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="project_id">2</th>
-                                    <td class="project_name">University Link</td>
-                                    <td class="project_date">20/06/2023</td>
-                                    <td class="project_budget">0 $</td>
-                                    <td class="project_team">PVSix</td>
-                                    <td class="project_details"><a class="btn btn-info" href="{{ route('project-details')}}" role="button">Detalhes</a></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="project_id">4</th>
-                                    <td class="project_name">BookFlix</td>
-                                    <td class="project_date">19/01/2024</td>
-                                    <td class="project_budget">0 $</td>
-                                    <td class="project_team">PVSix</td>
-                                    <td class="project_details"><a class="btn btn-info" href="{{ route('project-details')}}" role="button">Detalhes</a></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="project_id">3</th>
-                                    <td class="project_name">ERP Girassol</td>
-                                    <td class="project_date">02/08/2024</td>
-                                    <td class="project_budget">2,200,211.00 $</td>
-                                    <td class="project_team">PVSix</td>
-                                    <td class="project_details"><a class="btn btn-info" href="{{ route('project-details')}}" role="button">Detalhes</a></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="project_id">1</th>
-                                    <td class="project_name">Google Website</td>
-                                    <td class="project_date">12/03/2024</td>
-                                    <td class="project_budget">1,200,211.00 $</td>
-                                    <td class="project_team">Pings with Things</td>
-                                    <td class="project_details"><a class="btn btn-info" href="{{ route('project-details')}}" role="button">Detalhes</a></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="project_id">2</th>
-                                    <td class="project_name">University Link</td>
-                                    <td class="project_date">20/06/2023</td>
-                                    <td class="project_budget">0 $</td>
-                                    <td class="project_team">PVSix</td>
-                                    <td class="project_details"><a class="btn btn-info" href="{{ route('project-details')}}" role="button">Detalhes</a></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="project_id">4</th>
-                                    <td class="project_name">BookFlix</td>
-                                    <td class="project_date">19/01/2024</td>
-                                    <td class="project_budget">0 $</td>
-                                    <td class="project_team">PVSix</td>
-                                    <td class="project_details"><a class="btn btn-info" href="{{ route('project-details') }}" role="button">Detalhes</a></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="project_id">3</th>
-                                    <td class="project_name">ERP Girassol</td>
-                                    <td class="project_date">02/08/2024</td>
-                                    <td class="project_budget">2,200,211.00 $</td>
-                                    <td class="project_team">PVSix</td>
-                                    <td class="project_details"><a class="btn btn-info" href="{{ route('project-details')}}" role="button">Detalhes</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Nome</th>
-                                    <th>Prazo</th>
-                                    <th>Projecto</th>
-                                    <th>Detalhes</th>
-                                </tr>
-                            </thead>
-                            <tfoot>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Nome</th>
-                                    <th>Prazo</th>
-                                    <th>Projecto</th>
-                                    <th>Detalhes</th>
-                                </tr>
-                            </tfoot>
-                            <tbody>
-                                <tr>
-                                    <th scope="row" class="project_id">1</th>
-                                    <td class="project_name">Criação da página home</td>
-                                    <td class="project_date">12/03/2024</td>
-                                    <td class="project_team">21</td>
-                                    <td class="task_details"><a class="btn btn-info" href="{{ route('tasks-details')}}" role="button">Detalhes</a></td>
-                                    <td class="project_team"><button type="button" class="btn btn-danger">Apagar</button></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="project_id">2</th>
-                                    <td class="project_name">Criação da página home</td>
-                                    <td class="project_date">12/03/2024</td>
-                                    <td class="project_team">21</td>
-                                    <td class="task_details"><a class="btn btn-info" href="{{ route('tasks-details')}}" role="button">Detalhes</a></td>
-                                    <td class="project_team"><button type="button" class="btn btn-danger">Apagar</button></td>
-                                </tr>
+                                @foreach ($projecto as $proj)
+                                    <tr>
+                                        <th scope="row" class="project_">{{$proj->id}}</th>
+                                        <td class="project_name">{{$proj->name}}</td>
+                                        <td class="project_date">{{$proj->deadline}}</td>
+                                        <td class="project_budget">{{$proj->budget}}</td>
+                                        <td class="project_details"><a class="btn btn-info" href="{{ route('form-edit',['id'=>$proj->id])}}" role="button">Editar</a> 
+                                            <form action="{{route('projecto-delete', $proj->id)}}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <input type="submit" class="btn btn-danger" value="Deletar">
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                
                             </tbody>
                         </table>
                     </div>

@@ -1,4 +1,9 @@
 window._ = require('lodash');
+window.$ = window.jQuery = require('jquery');
+
+require('overlayscrollbars');
+require('bootstrap');
+require('../../vendor/almasaeed2010/adminlte/dist/js/adminlte');
 
 try {
     require('bootstrap');

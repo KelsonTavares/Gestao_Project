@@ -1,6 +1,13 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\projectoController;
+use App\Models\User;
+use App\Models\Tenant;
+use App\Models\Project;
+
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 
@@ -15,17 +22,23 @@ use App\Http\Controllers\Auth\RegisterController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('vendor.adminlte.auth.login');
-// })->name('login');
 
-// Route::get('/blank', function () {
-//     return view('tamplates.blank');
-// })->name('blank');
+Auth::routes();
+Route::get('/home', [AdminController::class, 'home']);
+Route::resource('ies', AdminController::class);
 
-// Route::get('/home', function () {
-//     return view('tamplates.home');
-// })->name('home');
+Route::get('/login', function () {
+    return view('tamplates.login');
+})->name('login');
+
+Route::get('/', function () {
+    return view('tamplates.blank');
+})->name('blank');
+
+Route::get('/home', function () {
+    $projecto = Project::all();
+    return view('tamplates.home', ['projecto'=>$projecto]);
+})->name('home');
 
 // Route::get('/project-details', function () {
 //     return view('tamplates.project-details');
@@ -39,13 +52,23 @@ use App\Http\Controllers\Auth\RegisterController;
 //     return view('tamplates.team-details');
 // })->name('team-details');
 
-// Route::get('/projecto-form', function () {
-//     return view('forms.form-project');
-// })->name('novo-projecto');
 
-// Route::get('/reset-password', function () {
-//     return view('tamplates.change-password');
-// })->name('password');
+Route::get('/projecto-form', function () {
+    $user = User::all();
+    $tenant = Tenant::all();
+    return view('forms.form-project', ['user'=>$user, 'tenant'=>$tenant]);
+})->name('novo-projecto');
+
+Route::get('/projecto-form/create', [projectoController::class, 'create'])->name('novo-projecto');
+Route::post('/', [projectoController::class, 'store'])->name('project-store');
+Route::get('projecto/{id}/edit', [projectoController::class, 'edit'])->name('form-edit');
+Route::put('projecto/{id}', [projectoController::class, 'update'])->name('projecto-update');
+Route::delete('projecto/{id}/deletar', [projectoController::class, 'destroy'])->name('projecto-delete');
+
+Route::get('/reset-password', function () {
+    return view('tamplates.change-password');
+})->name('password');
+
 
 // Route::get('/registrar', function () {
 //     return view('vendor.adminlte.auth.register');

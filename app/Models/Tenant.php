@@ -26,4 +26,5 @@ class Tenant extends BaseTenant implements TenantWithDatabase
         return true;
     }
 
+    protected $hidden = ['data'];
 }

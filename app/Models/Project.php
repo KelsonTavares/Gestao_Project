@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     use HasFactory;
+    #protected $with = ['user'];
 
     protected $fillable = [
         'name',
@@ -16,6 +17,7 @@ class Project extends Model
         'description',
         'comments',
         'user_id',
+        'tenant_id',
     ];
 
     public function riskManagements()
